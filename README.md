@@ -17,18 +17,20 @@ The core of this project is the `delta-optimizations.ipynb` Jupyter Notebook. It
 
 ***
 
-## 📂 Project Structure
+## 📁 Project Structure
 
-The project requires the following structure. The notebook will generate the `delta-test`, `liquid-test`, and `spark-warehouse` directories.
+The project requires the following structure.  
+The notebook will generate the `delta-test`, `liquid-test`, and `spark-warehouse` directories.
+
 
 .
 ├── data/
-│   └── data-1g/               <-- Required: Place Parquet files here for Liquid Clustering
+│ └── data-1g/ <-- Required: Place Parquet files here for Liquid Clustering
 ├── notebooks/
-│   └── delta-optimizations.ipynb  <-- The main Jupyter Notebook
+│ └── delta-optimizations.ipynb <-- The main Jupyter Notebook
 ├── raw_data/
-│   └── N_1e7_K_1e2_single.csv   <-- Required: Source CSV file
-└── spark-warehouse/           <-- Generated: Default Spark warehouse
+│ └── N_1e7_K_1e2_single.csv <-- Required: Source CSV file
+└── spark-warehouse/ <-- Generated: Default Spark warehouse
 
 
 ***
