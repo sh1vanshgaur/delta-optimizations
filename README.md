@@ -81,7 +81,7 @@ The results clearly show the impact of different data layout strategies on query
         * **Link:** `https://drive.google.com/drive/folders/1T22yWOrSXaDnRO2g6MnGje4nYBSvg4fG?usp=sharing`
         * **Action:** Place this file inside the `raw_data/` directory and name it `N_1e7_K_1e2_single.csv`.
 
-    * **Download the Parquet files** (assuming they are in a `.zip` archive):
+    * **Download the Parquet files** :
         * **Link:** `https://drive.google.com/drive/folders/1T22yWOrSXaDnRO2g6MnGje4nYBSvg4fG?usp=sharing`
         * **Action:** Download the zip file, extract its contents, and place the resulting Parquet files inside the `data/data-1g/` directory.
 
