@@ -21,7 +21,6 @@ The core of this project is the `delta-optimizations.ipynb` Jupyter Notebook. It
 
 The project requires the following structure. The notebook will generate the `delta-test`, `liquid-test`, and `spark-warehouse` directories.
 
-```
 .
 ├── data/
 │   └── data-1g/               <-- Required: Place Parquet files here for Liquid Clustering
@@ -30,7 +29,7 @@ The project requires the following structure. The notebook will generate the `de
 ├── raw_data/
 │   └── N_1e7_K_1e2_single.csv   <-- Required: Source CSV file
 └── spark-warehouse/           <-- Generated: Default Spark warehouse
-```
+
 
 ***
 
@@ -62,17 +61,29 @@ The results clearly show the impact of different data layout strategies on query
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/sh1vanshgaur/delta-optimizations
     ```
+
 2.  **Set up the environment:**
-    Ensure you have a Python environment with the following libraries installed:
-    * `pyspark`
-    * `delta-spark`
-    * `jupyter`
+    Ensure you have a Python environment with the required libraries installed.
+    ```bash
+    pip install pyspark delta-spark jupyter
+    ```
 
 3.  **Prepare Data Sources:**
-    * Place your source CSV file inside the `raw_data` directory.
-    * Create a `data` directory in the project root. Inside it, create another directory named `data-1g`. Place the Parquet files required for the **Liquid Clustering** example in this `data/data-1g/` folder.
+    First, create the necessary directories. Then, manually download the data files from the provided links and place them in the correct locations.
+
+    * **Create directories:**
+        ```bash
+        mkdir -p raw_data data/data-1g
+        ```
+    * **Download the source CSV file:**
+        * **Link:** `https://drive.google.com/drive/folders/1T22yWOrSXaDnRO2g6MnGje4nYBSvg4fG?usp=sharing`
+        * **Action:** Place this file inside the `raw_data/` directory and name it `N_1e7_K_1e2_single.csv`.
+
+    * **Download the Parquet files** (assuming they are in a `.zip` archive):
+        * **Link:** `https://drive.google.com/drive/folders/1T22yWOrSXaDnRO2g6MnGje4nYBSvg4fG?usp=sharing`
+        * **Action:** Download the zip file, extract its contents, and place the resulting Parquet files inside the `data/data-1g/` directory.
 
 4.  **Execute the Notebook:**
     Launch Jupyter Notebook and run the cells in `notebooks/delta-optimizations.ipynb` to reproduce the results.
