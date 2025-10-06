@@ -114,3 +114,13 @@ The table consists of nine columns, which can be grouped into identifiers and va
 | **`v3`** | Double | A floating-point metric or value. | Supplementary data. |
 
 ***
+
+## 👥 Collaborators
+
+This project is a collaborative effort by a dedicated team of 5
+
+- [Shivansh](https://github.com/sh1vanshgaur)
+- [Pulkit](https://github.com/pulkitjn3010)
+- [Anuj](https://github.com/animus08)
+- [Nishtha](https://github.com/novnishtha)
+- [Riya](https://github.com/Riyag012)
