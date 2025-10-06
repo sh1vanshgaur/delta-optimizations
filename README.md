@@ -91,29 +91,38 @@ The results clearly show the impact of different data layout strategies on query
 4.  **Execute the Notebook:**
     Launch Jupyter Notebook and run the cells in `notebooks/delta-optimizations.ipynb` to reproduce the results.
 
-## 💾 Dataset Details
+# H2O.ai Group-By Benchmark Dataset
 
-The dataset is synthetically generated to model a common big data scenario. It's designed with specific columns that are used to test the effectiveness of filtering and aggregation performance after applying different Delta Lake optimizations.
+## 📝 Overview
 
-### Row Structure
-The base CSV file contains 10 million rows. In the notebook, this data is appended to the Delta table multiple times to create the final benchmark table, which contains **over 160 million rows**. Each row represents a single record containing a set of identifiers and associated numerical values. This large number of rows helps to simulate a production-scale dataset where performance optimizations become critically important.
+This repository contains a sample dataset from **H2O.ai's benchmark suite**, designed specifically to test the performance and speed of data processing systems and machine learning algorithms.
 
-### Column Descriptions
-The table consists of nine columns, which can be grouped into identifiers and value-based metrics. The columns **`id1`** and **`id2`** are the most important, as they are used directly in the benchmark queries and as the target columns for the **Z-Ordering** and **Liquid Clustering** optimizations.
+The primary purpose of this dataset is not to model a real-world scenario but to provide a standardized, large-scale dataset to measure the efficiency of common data manipulation tasks, particularly **group-by operations** followed by **aggregations**.
 
-| Column | Data Type | Description | Role in Project |
-| :--- | :--- | :--- | :--- |
-| **`id1`** | String | A categorical identifier with a fixed number of unique values. | **Primary column** for filtering, aggregation, and clustering. |
-| **`id2`** | String | Another categorical identifier. | **Secondary column** for filtering, aggregation, and clustering. |
-| **`id3`** | String | A unique identifier for each record. | General ID, not used in optimizations. |
-| **`id4`** | Integer | A numerical identifier or attribute. | Supplementary data. |
-| **`id5`** | Integer | A numerical identifier or attribute. | Supplementary data. |
-| **`id6`** | Integer | A numerical identifier or attribute. | Supplementary data. |
-| **`v1`** | Integer | A numerical metric or value. | Supplementary data. |
-| **`v2`** | Integer | A numerical metric or value. | Supplementary data. |
-| **`v3`** | Double | A floating-point metric or value. | Supplementary data. |
+---
 
-***
+## Dataset Structure
+
+The dataset consists of several identifier columns (used for grouping) and value columns (used for calculations).
+
+### Column Explanations
+
+The columns fall into two main categories:
+
+1.  **Identifier Columns (`id1` - `id6`):** These are the grouping keys. They are categorical IDs with varying numbers of unique values (cardinality) and data types, designed to test how a system handles different grouping scenarios.
+2.  **Value Columns (`v1` - `v3`):** These are the numerical columns on which aggregate functions are performed.
+
+| Column Name | Data Type | Description |
+| :---------- | :---------- | :---------- |
+| `id1` | String | Categorical ID, low cardinality (e.g., 100 unique values). |
+| `id2` | String | Categorical ID, medium cardinality. |
+| `id3` | String | Categorical ID, high cardinality. |
+| `id4` | Integer | Categorical ID, integer type. |
+| `id5` | Integer | Categorical ID, integer type. |
+| `id6` | Integer | Categorical ID, integer type. |
+| `v1` | Integer | Integer value for aggregation (e.g., `sum()`, `count()`). |
+| `v2` | Integer | Integer value for aggregation. |
+| `v3` | Float | Floating-point value for aggregation (e.g., `mean()`, `stddev()`). |
 
 ## 👥 Collaborators
 
