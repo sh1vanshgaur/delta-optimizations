@@ -90,3 +90,27 @@ The results clearly show the impact of different data layout strategies on query
 
 4.  **Execute the Notebook:**
     Launch Jupyter Notebook and run the cells in `notebooks/delta-optimizations.ipynb` to reproduce the results.
+
+## 💾 Dataset Details
+
+The dataset is synthetically generated to model a common big data scenario. It's designed with specific columns that are used to test the effectiveness of filtering and aggregation performance after applying different Delta Lake optimizations.
+
+### Row Structure
+The base CSV file contains 10 million rows. In the notebook, this data is appended to the Delta table multiple times to create the final benchmark table, which contains **over 160 million rows**. Each row represents a single record containing a set of identifiers and associated numerical values. This large number of rows helps to simulate a production-scale dataset where performance optimizations become critically important.
+
+### Column Descriptions
+The table consists of nine columns, which can be grouped into identifiers and value-based metrics. The columns **`id1`** and **`id2`** are the most important, as they are used directly in the benchmark queries and as the target columns for the **Z-Ordering** and **Liquid Clustering** optimizations.
+
+| Column | Data Type | Description | Role in Project |
+| :--- | :--- | :--- | :--- |
+| **`id1`** | String | A categorical identifier with a fixed number of unique values. | **Primary column** for filtering, aggregation, and clustering. |
+| **`id2`** | String | Another categorical identifier. | **Secondary column** for filtering, aggregation, and clustering. |
+| **`id3`** | String | A unique identifier for each record. | General ID, not used in optimizations. |
+| **`id4`** | Integer | A numerical identifier or attribute. | Supplementary data. |
+| **`id5`** | Integer | A numerical identifier or attribute. | Supplementary data. |
+| **`id6`** | Integer | A numerical identifier or attribute. | Supplementary data. |
+| **`v1`** | Integer | A numerical metric or value. | Supplementary data. |
+| **`v2`** | Integer | A numerical metric or value. | Supplementary data. |
+| **`v3`** | Double | A floating-point metric or value. | Supplementary data. |
+
+***
